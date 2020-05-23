@@ -11,7 +11,7 @@ class Block{
         this.timestamp = timestamp;
         this.data = data;
         this.previousHash = previousHash;
-        this.hash = "";
+        this.hash = this.calculateHash();
     }
 
     //generates hash used to uniquely identify block/index on chain
@@ -81,8 +81,8 @@ joeCoin.addBlock(new Block(2, Date.now(), {amount:200 }));
 
 //alters block 1 to break relationship with previous block
 
-joeCoin.chain[1].data = { amount:800 }
-joeCoin.chain[1].hash = joeCoin.chain[1].calculateHash();
+// joeCoin.chain[1].data = { amount:800 }
+// joeCoin.chain[1].hash = joeCoin.chain[1].calculateHash();
 
 console.log(`Is joeCoin valid? ` + joeCoin.isChainValid());
 
